@@ -1,0 +1,27 @@
+div.info-banner {
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: 0px;
+    text-align: center;
+    z-index: 100;
+    padding: 1px;
+    vertical-align: middle;
+    border-bottom: solid 1px #000000;
+}
+
+div.info-banner-fixed {
+    
+}
+
+div.info-banner-dismisable {
+    
+}
+
+div.info-banner-fixed + #wrapper {
+    margin-top: 20px;
+}
+
+a.info-banner-dismiss {
+    margin-left: 10px;
+}
