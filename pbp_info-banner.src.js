@@ -97,7 +97,7 @@
 (function(j){
     settings = proboards.plugin.get('info_banner').settings;
     settings.animate = (settings.animate == "1") ? true : false;
-    settings.dismissable = (settings.dismissable == "1") ? true : false;
+    settings.dismissible = (settings.dismissible == "1") ? true : false;
     $body = $($('body')[0]);
     $banner = $('<div>')
         .addClass('info-banner')
@@ -111,16 +111,16 @@
         $(this).slideUp();
         $.cookie('banner_value', settings.banner_text, {expires: 99999});
     });
-    if (settings.dismissable == 1) {
+    if (settings.dismissible == 1) {
         $banner.append($('<a>').text('[Dismiss]').addClass('info-banner-dismiss').click(function(){$(this).parent().trigger('dismiss');}));
-        $banner.addClass('info-banner-dismissable');
+        $banner.addClass('info-banner-dismissible');
     } else {
         $banner.addClass('info-banner-fixed');
     }
     
-    if ((settings.dismissable && $.cookie('banner_value') != settings.banner_text) || !settings.dismissable) {
+    if ((settings.dismissible && $.cookie('banner_value') != settings.banner_text) || !settings.dismissible) {
         $body.prepend($banner);
-        if (settings.dismissable && settings.animate) {
+        if (settings.dismissible && settings.animate) {
             $banner.delay(200).slideDown();
         } else {
             $banner.show();
