@@ -101,7 +101,30 @@
     $body = $($('body')[0]);
     $banner = $('<div>')
         .addClass('info-banner')
-        .text(settings.banner_text)
+        .html(
+			function(bannerText){
+                return bannerText.replace(
+                    /(?:\[(?:url|a)\]((?:[a-zA-Z]+\:\/\/)?[^\[\"]+)\[\/(?:url|a)\]|\[(?:url|a)(?: href=(?:\'|\")([^\'\"]+)(?:\'|\")|=([^\]]+))\]([^\[]+)\[\/(?:url|a)\])/ig,
+                    function(match, group1, group2, group3, group4, offset, original){
+                        if (group1 != undefined) {
+                            url = group1;
+                            text = group1;
+                        } else if (group2 != undefined) {
+                            url = group2;
+                            text = group4;
+                        } else if (group3 != undefined) {
+                            url = group3;
+                            text = group4;
+                        } else {
+                           return match;
+                        }
+                        return '<a href="'+url+'">'+text+'</a>';
+                    }
+                );
+            }(
+            settings.banner_text
+            )
+        )
         .css({
             'background-color': '#'+settings.background_color,
             'color': '#'+settings.text_color
