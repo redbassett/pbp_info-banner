@@ -101,6 +101,9 @@
     $body = $($('body')[0]);
     $banner = $('<div>')
         .addClass('info-banner')
+        .append(
+            $('<span>')
+            .addClass('info-banner-content')
         .html(
 			function(bannerText){
                 return bannerText.replace(
@@ -124,10 +127,13 @@
             }(
             settings.banner_text
             )
+                      )
         )
         .css({
             'background-color': '#'+settings.background_color,
-            'color': '#'+settings.text_color
+            'color': '#'+settings.text_color,
+            'height': ((settings.banner_height)?settings.banner_height:20)+'px',
+            'line-height': ((settings.banner_height)?settings.banner_height:20)+'px'
         	})
         .hide();
     $banner.bind('dismiss', function(){
@@ -135,7 +141,7 @@
         $.cookie('banner_value', settings.banner_text, {expires: 99999});
     });
     if (settings.dismissible == 1) {
-        $banner.append($('<a>').text('[Dismiss]').addClass('info-banner-dismiss').click(function(){$(this).parent().trigger('dismiss');}));
+        $banner.find('.info-banner-content').append($('<a>').text('[Dismiss]').addClass('info-banner-dismiss').click(function(){$(this).parent().trigger('dismiss');}));
         $banner.addClass('info-banner-dismissible');
     } else {
         $banner.addClass('info-banner-fixed');
