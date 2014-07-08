@@ -6,3 +6,8 @@ v0.0.2-alpha - July 16th, 2013
 
 v0.1.0-beta - Sept 19th, 2013
 - Support for custom banner heights added.  Heights are in pixels.
+
+v0.2.0-beta - July 8th, 2014
+- Fixed: Firefox-specific bug causing banner to not display links in banner text.
+- Update: Unclear help text for animate setting rewritten to clarify function.
+- Update: In compliancy with change to ProBoards Plugin Policy, plugin source no longer minified. (Previous version also unminified, but change not recorded in versioning.)
