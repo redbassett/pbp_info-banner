@@ -138,7 +138,7 @@
 	.hide();
 	$banner.bind('dismiss', function(){
 		$(this).slideUp();
-		$.cookie('banner_value', settings.banner_text, {expires: 99999});
+		$.cookie('banner_value', settings.banner_text, {expires: 99999, path: '/'});
 	});
 	if (settings.dismissible == 1) {
 		$banner.find('.info-banner-content').append($('<a>').text('[Dismiss]').addClass('info-banner-dismiss').click(function(){$(this).parent().trigger('dismiss');}));
