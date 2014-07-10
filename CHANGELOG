@@ -11,3 +11,6 @@ v0.2.0-beta - July 8th, 2014
 - Fixed: Firefox-specific bug causing banner to not display links in banner text.
 - Update: Unclear help text for animate setting rewritten to clarify function.
 - Update: In compliance with change to ProBoards Plugin Policy, plugin source no longer minified. (Previous version also unminified, but change not recorded in versioning.)
+
+v0.2.1-beta - July 10th, 2014
+- Fixed: Bug causing banners dismissed while viewing any page but root to be displayed when viewing root.
